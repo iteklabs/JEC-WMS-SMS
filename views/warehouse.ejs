@@ -122,6 +122,7 @@
                                                                         data-id="<%= user._id %>"
                                                                         data-room="<%= user.room %>"
                                                                         data-isStaging="<%= user.isStaging %>"
+                                                                        data-isProduction="<%= user.isProduction %>"
                                                                         >
                                                                         
                                                                         <%= language.edit %> 
@@ -178,6 +179,9 @@
 
                                             <input type="checkbox" class="form-check-input" id="isStaging" name="isStaging">
                                             <label for="isStaging" class="col-form-label">Staging</label>
+
+                                            <input type="checkbox" class="form-check-input" id="isProduction" name="isProduction">
+                                            <label for="isStaging" class="col-form-label">Production</label>
                                             
 
                                         </div>
@@ -275,7 +279,14 @@
                                         </div> -->
 
                                         <input type="checkbox" class="form-check-input" id="isStaging_edit" name="isStaging_edit">
-                                            <label for="isStaging_edit" class="col-form-label">Staging</label>
+                                        <label for="isStaging_edit" class="col-form-label">Staging</label>
+
+
+                                        <input type="checkbox" class="form-check-input" id="isProduction_edit" name="isProduction_edit">
+                                            <label for="isProduction_edit" class="col-form-label">Production</label>
+
+
+
                                         <button type="submit" class="btn btn-primary w-100"><%= language.submit %> </button>
 
                                     </div>
@@ -326,6 +337,8 @@
 
         let isStaging = $(this).attr("data-isStaging");
 
+        let isProduction = $(this).attr("data-isProduction");
+        
         // console.log(isStaging);
         console.log("isStaging:", isStaging);
         $("#edit_form").attr('action', '/warehouse/view/' + dataId);
@@ -342,6 +355,13 @@
             $("#isStaging_edit").prop("checked", true);
         }else {
             $("#isStaging_edit").prop("checked", false);
+        }
+
+
+        if(isProduction == "true"){
+            $("#isProduction_edit").prop("checked", true);
+        }else {
+            $("#isProduction_edit").prop("checked", false);
         }
         
 

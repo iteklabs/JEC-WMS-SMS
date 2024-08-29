@@ -216,6 +216,10 @@ const warehouse_data = new mongoose.Schema({
         type: String,
         default: "false"
     },
+    isProduction: {
+        type: String,
+        default: "false"
+    },
     product_details: [
         {
             product_name: {
@@ -350,6 +354,10 @@ const staff_data = new mongoose.Schema({
     },
     district: {
         type: String
+    },
+    isProduction: {
+        type: String,
+        default: "false"
     },
     product_list: [
         {

@@ -5,7 +5,6 @@ const auth = require("../middleware/auth");
 const { profile, sales, sales_return, purchases, purchases_return, categories, product, suppliers, customer, master_shop, transfers, adjustment, purchases_finished, sales_finished, adjustment_finished, transfers_finished, staff, sales_sa, sales_order } = require("../models/all_models");
 const users = require("../public/language/languages.json");
 
-
 router.get("/index", auth, async(req, res) => {
     try {
         
@@ -511,7 +510,6 @@ router.get("/index", auth, async(req, res) => {
     }
 })
 
-
 router.get("/pending_data_table", auth, async(req, res) => {
     try {
         const role_data = req.user
@@ -552,7 +550,6 @@ router.get("/pending_data", auth, async(req, res) => {
     }
 })
 
-
 router.post("/get_count", auth, async(req, res) => {
     try {
         const { sttaff_id, warehouse, account_category } = req.user;
@@ -571,8 +568,6 @@ router.post("/get_count", auth, async(req, res) => {
     }
 })
 
-
-
 router.get("/paid_data_table", auth, async(req, res) => {
     try {
         const role_data = req.user
@@ -586,8 +581,6 @@ router.get("/paid_data_table", auth, async(req, res) => {
         res.json(error);
     }
 })
-
-
 
 router.get("/paid_data", auth, async(req, res) => {
     try {
@@ -616,7 +609,6 @@ router.get("/paid_data", auth, async(req, res) => {
     }
 })
 
-
 router.post("/update_data", auth, async(req, res) => {
     try {
 
@@ -634,8 +626,6 @@ router.post("/update_data", auth, async(req, res) => {
     }
 })
 
-
-
 router.get("/pending_data", auth, async(req, res) => {
     try {
         const role_data = req.user
@@ -648,7 +638,6 @@ router.get("/pending_data", auth, async(req, res) => {
         res.json(error);
     }
 })
-
 
 router.get("/avg_data", auth, async(req, res) => {
     try {
@@ -686,8 +675,6 @@ router.get("/avg_data", auth, async(req, res) => {
     }
 })
 
-
-
 router.get("/my_inv", auth, async(req, res) => {
     try {
         const role_data = req.user
@@ -723,7 +710,6 @@ router.get("/my_inv", auth, async(req, res) => {
 })
 
 
-
 router.get("/sales_chart", auth, async(req, res) => {
     try {
         const role_data = req.user
@@ -757,7 +743,6 @@ router.get("/sales_chart", auth, async(req, res) => {
     }
 })
 
-
 router.get("/price_chart", auth, async(req, res) => {
     try {
         const role_data = req.user
@@ -790,11 +775,6 @@ router.get("/price_chart", auth, async(req, res) => {
         res.json(error);
     }
 })
-
-
-
-
-
 
 
 module.exports = router;

@@ -136,6 +136,7 @@
                                                                             data-type_of_acc_cat = "<%= user.type_of_acc_cat %>"
                                                                             data-sales_man_code = "<%= user.sales_man_code %>"
                                                                             data-district = "<%= user.district %>"
+                                                                            data-isProduction = "<%= user.isProduction %>"
                                                                             data-id="<%= user._id %>"><i class="la la-pencil"></i>
                                                                             <%= language.edit %></a>
 
@@ -280,6 +281,10 @@
                                                 </label>
                                                 <input type="text" class="form-control" id="sales_man_code"
                                                     value="<%= user.sales_man_code %>" name="sales_man_code">
+                                            </div>
+                                            <div class="mb-3 col-md-6">
+                                                <input type="checkbox" class="form-check-input" id="isProduction" name="isProduction">
+                                                <label for="isProduction" class="col-form-label">Production</label>
                                             </div>
                                     </div>
                                         <button type="submit" class="btn btn-primary w-100"><%= language.submit %></button>
@@ -428,6 +433,11 @@
                                             <input type="text" class="form-control" id="sales_man_code2"
                                                  value="<%= user.sales_man_code %>" name="sales_man_code2">
                                         </div>
+
+                                        <div class="mb-3 col-md-6">
+                                            <input type="checkbox" class="form-check-input" id="isProduction_edit" name="isProduction_edit">
+                                            <label for="isProduction_edit" class="col-form-label">Production</label>
+                                        </div>
                                        </div>
                                        
                                         <button type="submit" class="btn btn-primary w-100"><%= language.submit %> </button>
@@ -484,6 +494,8 @@
         let data_type_acct = $(this).attr("data-type_of_acc_cat");
         let sales_man_code = $(this).attr("data-sales_man_code");
         let dsitrict_data = $(this).attr("data-district");
+        let isProduction = $(this).attr("data-isProduction");
+        
 
         $("#edit_form").attr('action', '/staff/view/' + dataId);
         $('#edit-name').attr('value', dataName);
@@ -497,6 +509,13 @@
         $("#account_edit_cat").val(account_category).attr("selected", "selected");
         $("#sales_cat2").val(data_type_acct).attr("selected", "selected");
         $("#district_edit").val(dsitrict_data).attr("selected", "selected");
+
+
+        if(isProduction == "true"){
+            $("#isProduction_edit").prop("checked", true);
+        }else {
+            $("#isProduction_edit").prop("checked", false);
+        }
     });
     </script>
 

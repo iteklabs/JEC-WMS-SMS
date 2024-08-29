@@ -73,7 +73,13 @@ router.post("/view", auth, async (req, res) => {
         if(req.body.isStaging == "on"){
             dataStaging = "true";
         }
-        const data = new warehouse({ name, address, status, room: Room_name, warehouse_category: rawfinished , category: category_name, isStaging: dataStaging })
+
+
+        var dataisProduction = "false";
+        if(req.body.isProduction == "on"){
+            dataisProduction = "true";
+        }
+        const data = new warehouse({ name, address, status, room: Room_name, warehouse_category: rawfinished , category: category_name, isStaging: dataStaging, isProduction: dataisProduction })
 
         const warehouse_name = await warehouse.findOne({ name:name, room: Room_name });
         if(warehouse_name){
@@ -151,6 +157,12 @@ router.post("/view/:id", auth, async (req, res) => {
         if(req.body.isStaging_edit == "on"){
             dataStaging = "true";
         }
+
+
+        var dataisProduction_edit = "false";
+        if(req.body.isProduction_edit == "on"){
+            dataisProduction_edit = "true";
+        }
         // res.json(req.body);
         // return;
 
@@ -174,6 +186,7 @@ router.post("/view/:id", auth, async (req, res) => {
         data.status = status
         data.room = Room_name
         data.isStaging= dataStaging
+        data.isProduction =  dataisProduction_edit
 
         const new_data = await data.save();
 
